@@ -133,11 +133,11 @@ function App() {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 mb-6"
+              className="flex items-center gap-2 mt-2"
             >
               <div className={`w-2 h-2 rounded-full ${theme.bgAccent}`} 
                    style={{ boxShadow: `0 0 10px ${theme.color}` }} />
-              <span className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase">Organic Chemistry</span>
+              <span className="text-[14px] font-bold tracking-[0.2em] text-white/50 uppercase">Organic Chemistry</span>
             </motion.div>
 
             {/* Fixed-Size Semicircle Arc Hero - Extra Large Scale */}
