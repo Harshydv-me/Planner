@@ -141,7 +141,7 @@ function App() {
             </motion.div>
 
             {/* Fixed-Size Semicircle Arc Hero - Extra Large Scale */}
-            <div className="relative w-[480px] h-[240px] sm:w-[600px] sm:h-[300px] flex items-end justify-center mb-14 flex-shrink-0">
+            <div className="relative w-[480px] h-[240px] sm:w-[600px] sm:h-[300px] flex items-end justify-center mb-2 flex-shrink-0">
               <svg 
                 viewBox="0 0 600 300" 
                 className="absolute top-0 w-full h-full overflow-visible pointer-events-none"
@@ -226,7 +226,7 @@ function App() {
             </div>
 
             {/* Progress Bar */}
-            <div className="w-full max-w-[240px] sm:max-w-[280px] h-1 bg-white/5 rounded-full relative overflow-hidden border border-white/5 z-20 mb-6 flex-shrink-0">
+            <div className="w-full max-w-[240px] sm:max-w-[280px] h-1.5 bg-white/5 rounded-full relative overflow-hidden border border-white/5 z-20 mb-6 flex-shrink-0 -mt-8">
               <motion.div 
                 initial={{ width: 0 }}
                 animate={{ width: '65%' }}
