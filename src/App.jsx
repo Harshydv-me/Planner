@@ -86,6 +86,14 @@ function App() {
       {/* Grid Background */}
       <div className="fixed inset-0 grid-bg pointer-events-none" />
 
+      {/* Bottom Theme Ambient Glow - Refined for seamless bloom */}
+      <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-0">
+        <div 
+          className="absolute bottom-[-100px] left-0 right-0 h-[100px] blur-[120px] opacity-100 transition-colors duration-1000"
+          style={{ backgroundColor: theme.color }}
+        />
+      </div>
+
       {/* Floating Theme Toggle */}
       <div className="fixed bottom-6 right-6 hidden lg:flex flex-col gap-3 p-2.5 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 z-50">
         {Object.keys(THEMES).map(t => (
@@ -124,10 +132,10 @@ function App() {
        
         {/* topics tab */}
         {/* Dashboard Split View */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start gap-6 lg:gap-44 flex-1 min-h-0 overflow-y-auto lg:overflow-visible custom-scrollbar ">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start gap-6 lg:gap-44 flex-1 lg:min-h-0 lg:overflow-visible custom-scrollbar pt-10 lg:pt-0">
           {/* clock tab */}
           {/* Left Column: Hero & Timer - Scaled Down */}
-          <div className="w-full lg:max-w-[420px] flex flex-col items-center lg:pl-20 lg:pt-25 flex-shrink-0" >
+          <div className="w-full lg:max-w-[420px] flex flex-col items-center lg:pl-20 lg:pt-25 flex-shrink-0 relative" >
             
             {/* Subject Badge */}
             <motion.div 
@@ -264,8 +272,8 @@ function App() {
                 {/* Bottom CTA Area - Compact */}
                 <div className="mt-auto flex flex-col items-center gap-4 flex-shrink-0">
                   <div className="flex items-center gap-2">
-                    <Users size={14} className="text-white/40" />
-                    <span className="text-[9px] sm:text-[10px] font-medium text-white/40 uppercase tracking-widest">
+                    <Users size={14} className="text-white/90" />
+                    <span className="text-[9px] sm:text-[10px] font-medium text-white/90 uppercase tracking-widest">
                       28 students active
                     </span>
                   </div>
