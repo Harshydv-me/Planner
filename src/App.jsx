@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Cloud, Users } from 'lucide-react';
+import { ArrowLeft, Cloud, Users } from 'lucide-react';
 
 const THEMES = {
   morning: {
@@ -109,17 +109,24 @@ function App() {
       <main className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-4 sm:pt-6 pb-12 flex flex-col h-full">
         
         {/* Universal Header - Scaled Down */}
-        <header className="relative flex items-center justify-center mb-4 lg:mb-10 h-12 flex-shrink-0">
+        <header className="relative flex items-center justify-center mb-4 lg:mb-12 h-12 flex-shrink-0">
           <motion.button 
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1, x: -2 }}
             whileTap={{ scale: 0.9 }}
-            className="absolute left-0 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10"
+            className="absolute left-0 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white transition-colors"
           >
-            <ChevronLeft size={20} />
+            <ArrowLeft size={24} strokeWidth={1.5} />
           </motion.button>
 
-          <div className="bg-white/5 border border-white/10 px-6 py-2 rounded-full backdrop-blur-md">
-            <span className="text-base font-medium tracking-tight whitespace-nowrap">Today's plan</span>
+          <div className="relative group">
+            <div className="relative px-8 py-1.5 rounded-full bg-[#0d0d0d] border border-white/10 flex items-center justify-center"
+                 style={{
+                   boxShadow: 'inset 0 8px 12px rgba(0,0,0,0.9), inset 0 -2px 1px rgba(255, 255, 255, 0.2)'
+                 }}>
+              <span className="text-[20px] font-bold tracking-tight whitespace-nowrap bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text text-transparent">
+                Today's plan
+              </span>
+            </div>
           </div>
 
           <div className="absolute right-0 xl:right-14 flex flex-col items-end">
