@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Cloud } from 'lucide-react';
+import { ChevronLeft, Cloud, Users } from 'lucide-react';
 
 const THEMES = {
   morning: {
@@ -191,10 +191,42 @@ function App() {
         </div>
 
         {/* Topics List */}
-        <section className="flex-1 space-y-1">
+        <section className="flex-1 space-y-1 mb-12">
           {TOPICS.map((topic) => (
             <TopicCard key={topic.id} topic={topic} />
           ))}
+        </section>
+
+        {/* CTA Section (Now Inline) */}
+        <section className="flex flex-col items-center gap-4 pb-12">
+          {/* Social Proof */}
+          <div className="flex items-center gap-2">
+            <Users size={16} className="text-white/60" />
+            <span className="text-sm font-medium text-white/90">
+              28 students declared their plan today
+            </span>
+          </div>
+
+          {/* Main Action Button */}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className={`w-full py-4 rounded-3xl font-bold text-xl tracking-tight relative overflow-hidden group shadow-2xl transition-colors duration-500`}
+            style={{ 
+              background: `linear-gradient(to bottom, ${theme.color}CC, ${theme.color})`,
+              boxShadow: `0 10px 30px -10px ${theme.glow}`
+            }}
+          >
+            {/* Top Glossy Highlight */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/40 z-10" />
+            
+            <span className="relative z-10 text-white drop-shadow-sm">
+              Start plan
+            </span>
+            
+            {/* Ambient Glow Effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-white" />
+          </motion.button>
         </section>
 
       </main>
