@@ -127,7 +127,7 @@ function App() {
         <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start gap-6 lg:gap-44 flex-1 min-h-0 overflow-y-auto lg:overflow-visible custom-scrollbar ">
           {/* clock tab */}
           {/* Left Column: Hero & Timer - Scaled Down */}
-          <div className="w-full lg:max-w-[420px] flex flex-col items-center lg:pl-26 lg:pt-32 flex-shrink-0" >
+          <div className="w-full lg:max-w-[420px] flex flex-col items-center lg:pl-20 lg:pt-25 flex-shrink-0" >
             
             {/* Subject Badge */}
             <motion.div 
@@ -140,53 +140,87 @@ function App() {
               <span className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase">Organic Chemistry</span>
             </motion.div>
 
-            {/* Fixed-Size Semicircle Arc Hero - Scaled down slightly */}
-            <div className="relative w-[300px] h-[150px] sm:w-[360px] sm:h-[180px] flex items-end justify-center mb-8 flex-shrink-0">
+            {/* Fixed-Size Semicircle Arc Hero - Extra Large Scale */}
+            <div className="relative w-[480px] h-[240px] sm:w-[600px] sm:h-[300px] flex items-end justify-center mb-14 flex-shrink-0">
               <svg 
-                viewBox="0 0 360 180" 
+                viewBox="0 0 600 300" 
                 className="absolute top-0 w-full h-full overflow-visible pointer-events-none"
               >
+                <defs>
+                  <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor={theme.color} stopOpacity="0" />
+                    <stop offset="20%" stopColor={theme.color} stopOpacity="1" />
+                    <stop offset="80%" stopColor={theme.color} stopOpacity="1" />
+                    <stop offset="100%" stopColor={theme.color} stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="whiteGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="5%" stopColor="white" stopOpacity="0" />
+                    <stop offset="30%" stopColor="white" stopOpacity="0.5" />
+                    <stop offset="70%" stopColor="white" stopOpacity="0.5" />
+                    <stop offset="95%" stopColor="white" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                
+                {/* Outer Glow Path */}
                 <motion.path
-                  key={timeOfDay}
+                  key={`${timeOfDay}-glow`}
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}
-                  d="M 30,180 A 150,150 0 0 1 330,180"
+                  d="M 50,300 A 250,250 0 0 1 550,300"
                   fill="none"
-                  stroke={theme.color}
-                  strokeWidth="5"
+                  stroke="url(#arcGradient)"
+                  strokeWidth="10"
                   strokeLinecap="round"
                   style={{
                     filter: `
-                      drop-shadow(0 0 3px #fff)
                       drop-shadow(0 0 8px ${theme.color})
-                      drop-shadow(0 0 25px ${theme.glow})
+                      drop-shadow(0 0 20px ${theme.glow})
                     `
+                  }}
+                />
+
+                {/* Inner White Core Path */}
+                <motion.path
+                  key={`${timeOfDay}-core`}
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  d="M 50,300 A 250,250 0 0 1 550,300"
+                  fill="none"
+                  stroke="url(#whiteGradient)"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  style={{
+                    filter: `blur(2px) drop-shadow(0 0 5px #fff)`
                   }}
                 />
               </svg>
               
               {/* Central Ambient Glow */}
               <div 
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-full rounded-full blur-[60px] opacity-15 transition-colors duration-1000"
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-full rounded-full blur-[80px] opacity-10 bg-white pointer-events-none transition-opacity duration-1000"
+              />
+              <div 
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-full rounded-full blur-[60px] opacity-15 transition-colors duration-1000"
                 style={{ backgroundColor: theme.color }}
               />
 
-              {/* Timer Display - Scaled down */}
-              <div className="relative z-20 flex items-baseline gap-1 font-medium tracking-tighter pb-2.5">
-                <div className="flex items-baseline gap-0.5">
-                  <span className="text-2xl sm:text-3xl font-semibold">05</span>
-                  <span className="text-[9px] sm:text-[10px] text-white/40 font-medium uppercase">hr</span>
+              {/* Timer Display - Balanced Scale */}
+              <div className="relative z-20 flex items-baseline gap-1.5 font-medium tracking-tighter pb-10">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-4xl sm:text-5xl font-semibold">05</span>
+                  <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">hr</span>
                 </div>
-                <div className="w-0.5 h-0.5 bg-white/20 rounded-full mb-4 sm:mb-5" />
-                <div className="flex items-baseline gap-1">
-                  <span className="text-2xl sm:text-3xl font-semibold">00</span>
-                  <span className="text-[9px] sm:text-[10px] text-white/40 font-medium uppercase">min</span>
+                <div className="w-1 h-1 bg-white/20 rounded-full mb-5 sm:mb-6" />
+                <div className="flex items-baseline gap-3">
+                  <span className="text-4xl sm:text-5xl font-semibold">00</span>
+                  <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">min</span>
                 </div>
-                <div className="w-0.5 h-0.5 bg-white/20 rounded-full mb-4 sm:mb-5" />
-                <div className="flex items-baseline gap-1">
-                  <span className="text-2xl sm:text-3xl font-semibold">00</span>
-                  <span className="text-[9px] sm:text-[10px] text-white/40 font-medium uppercase">sec</span>
+                <div className="w-1 h-1 bg-white/20 rounded-full mb-5 sm:mb-6" />
+                <div className="flex items-baseline gap-3">
+                  <span className="text-4xl sm:text-5xl font-semibold">00</span>
+                  <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">sec</span>
                 </div>
               </div>
             </div>
