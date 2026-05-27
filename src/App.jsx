@@ -169,7 +169,7 @@ function App() {
                   </linearGradient>
                 </defs>
                 
-                {/* Outer Glow Path */}
+                {/* Outer Glow Path - 5 Layer Ultra Bloom */}
                 <motion.path
                   key={`${timeOfDay}-glow`}
                   initial={{ pathLength: 0, opacity: 0 }}
@@ -182,8 +182,10 @@ function App() {
                   strokeLinecap="round"
                   style={{
                     filter: `
-                      drop-shadow(0 0 8px ${theme.color})
+                      drop-shadow(0 0 5px ${theme.color})
+                      drop-shadow(0 0 10px ${theme.color})
                       drop-shadow(0 0 20px ${theme.glow})
+                      drop-shadow(0 0 30px ${theme.glow})  
                     `
                   }}
                 />
@@ -200,22 +202,12 @@ function App() {
                   strokeWidth="3.5"
                   strokeLinecap="round"
                   style={{
-                    filter: `blur(2px) drop-shadow(0 0 5px #fff)`
+                    filter: `blur(50px) drop-shadow(0 0 100px #fff)`
                   }}
-                />
-              </svg>
-              
-              {/* Central Ambient Glow */}
-              <div 
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-full rounded-full blur-[80px] opacity-10 bg-white pointer-events-none transition-opacity duration-1000"
-              />
-              <div 
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-full rounded-full blur-[60px] opacity-15 transition-colors duration-1000"
-                style={{ backgroundColor: theme.color }}
-              />
+                />                  </svg>
 
-              {/* Timer Display - Balanced Scale */}
-              <div className="relative z-20 flex items-baseline gap-1.5 font-medium tracking-tighter pb-11">
+                  {/* Timer Display - Balanced Scale */}
+                  <div className="relative z-20 flex items-baseline gap-1.5 font-medium tracking-tighter pb-11">
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-4xl sm:text-5xl font-semibold">05</span>
                   <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">hr</span>
