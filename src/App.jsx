@@ -278,16 +278,20 @@ function App() {
                   </div>
 
                   <motion.button
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`w-full py-3.5 rounded-2xl font-bold text-base sm:text-lg tracking-tight relative overflow-hidden shadow-2xl transition-colors duration-500`}
+                    className="w-60 py-2 rounded-[1rem] border border-white/100 relative overflow-hidden transition-all duration-300 shadow-xl"
                     style={{ 
-                      background: `linear-gradient(to bottom, ${theme.color}CC, ${theme.color})`,
-                      boxShadow: `0 8px 30px -10px ${theme.glow}`
+                      background: `linear-gradient(to bottom, ${theme.color}, ${theme.color}CC)`,
+                      boxShadow: `
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                        0 12px 24px -8px ${theme.glow}
+                      `
                     }}
                   >
-                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/40 z-10" />
-                    <span className="relative z-10 text-white drop-shadow-sm uppercase">Start plan</span>
+                    <span className="relative z-10 bg-gradient-to-b from-white via-white/100 to-white/100 bg-clip-text text-transparent text-xl font-bold tracking-tight">
+                      Start plan
+                    </span>
                   </motion.button>
                 </div>
               </div>
