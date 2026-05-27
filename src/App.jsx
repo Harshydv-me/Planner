@@ -114,9 +114,9 @@ function App() {
             <span className="text-base font-medium tracking-tight whitespace-nowrap">Today's plan</span>
           </div>
 
-          <div className="absolute right-0 flex flex-col items-end">
-            <Cloud size={14} className={`${theme.accent} mb-0.5`} />
-            <div className={`px-2 py-0.5 rounded-sm bg-white/5 border border-white/10 text-[9px] font-bold tracking-wider uppercase ${theme.accent}`}>
+          <div className="absolute right-0 xl:right-14 flex flex-col items-end">
+            <Cloud size={18} className={`${theme.accent} mb-1`} />
+            <div className={`px-3 py-1 rounded-sm bg-white/5 border border-white/10 text-[10px] font-bold tracking-wider uppercase ${theme.accent}`}>
               05 April 2026
             </div>
           </div>
@@ -213,12 +213,12 @@ function App() {
                   <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">hr</span>
                 </div>
                 <div className="w-1 h-1 bg-white/20 rounded-full mb-5 sm:mb-6" />
-                <div className="flex items-baseline gap-3">
+                <div className="flex items-baseline gap-1.5">
                   <span className="text-4xl sm:text-5xl font-semibold">00</span>
                   <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">min</span>
                 </div>
                 <div className="w-1 h-1 bg-white/20 rounded-full mb-5 sm:mb-6" />
-                <div className="flex items-baseline gap-3">
+                <div className="flex items-baseline gap-1.5">
                   <span className="text-4xl sm:text-5xl font-semibold">00</span>
                   <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">sec</span>
                 </div>
