@@ -121,12 +121,13 @@ function App() {
             </div>
           </div>
         </header>
-
+       
+        {/* topics tab */}
         {/* Dashboard Split View */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start gap-6 lg:gap-40 flex-1 min-h-0 overflow-y-auto lg:overflow-visible custom-scrollbar">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start gap-6 lg:gap-44 flex-1 min-h-0 overflow-y-auto lg:overflow-visible custom-scrollbar ">
           
           {/* Left Column: Hero & Timer - Scaled Down */}
-          <div className="w-full lg:max-w-[420px] flex flex-col items-center lg:items-start lg:pt-8 flex-shrink-0" >
+          <div className="w-full lg:max-w-[420px] flex flex-col items-center lg:items-start lg:pt-32 lg:pl-26 flex-shrink-0" >
             
             {/* Subject Badge */}
             <motion.div 
