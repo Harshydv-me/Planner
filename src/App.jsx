@@ -173,19 +173,19 @@ function App() {
               />
 
               {/* Timer Display - Scaled down */}
-              <div className="relative z-20 flex items-baseline gap-3 font-medium tracking-tighter pb-4">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl sm:text-6xl font-semibold">05</span>
+              <div className="relative z-20 flex items-baseline gap-1 font-medium tracking-tighter pb-2.5">
+                <div className="flex items-baseline gap-0.5">
+                  <span className="text-2xl sm:text-3xl font-semibold">05</span>
                   <span className="text-[9px] sm:text-[10px] text-white/40 font-medium uppercase">hr</span>
                 </div>
                 <div className="w-0.5 h-0.5 bg-white/20 rounded-full mb-4 sm:mb-5" />
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl sm:text-6xl font-semibold">00</span>
+                  <span className="text-2xl sm:text-3xl font-semibold">00</span>
                   <span className="text-[9px] sm:text-[10px] text-white/40 font-medium uppercase">min</span>
                 </div>
                 <div className="w-0.5 h-0.5 bg-white/20 rounded-full mb-4 sm:mb-5" />
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl sm:text-6xl font-semibold">00</span>
+                  <span className="text-2xl sm:text-3xl font-semibold">00</span>
                   <span className="text-[9px] sm:text-[10px] text-white/40 font-medium uppercase">sec</span>
                 </div>
               </div>
