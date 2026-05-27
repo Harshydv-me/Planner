@@ -1,122 +1,175 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, Cloud, Users, Play, Clock } from 'lucide-react';
+
+const THEMES = {
+  morning: {
+    name: 'Morning',
+    color: '#facc15',
+    accent: 'text-morning',
+    bgAccent: 'bg-morning',
+    gradient: 'from-amber-700 to-morning',
+    shadow: 'shadow-morning/20',
+    glow: 'rgba(250, 204, 21, 0.3)'
+  },
+  afternoon: {
+    name: 'Afternoon',
+    color: '#fb7185',
+    accent: 'text-afternoon',
+    bgAccent: 'bg-afternoon',
+    gradient: 'from-rose-700 to-afternoon',
+    shadow: 'shadow-afternoon/20',
+    glow: 'rgba(251, 113, 133, 0.3)'
+  },
+  evening: {
+    name: 'Evening',
+    color: '#34d399',
+    accent: 'text-evening',
+    bgAccent: 'bg-evening',
+    gradient: 'from-emerald-700 to-evening',
+    shadow: 'shadow-evening/20',
+    glow: 'rgba(52, 211, 153, 0.3)'
+  },
+  night: {
+    name: 'Night',
+    color: '#a855f7',
+    accent: 'text-night',
+    bgAccent: 'bg-night',
+    gradient: 'from-violet-700 to-night',
+    shadow: 'shadow-night/20',
+    glow: 'rgba(168, 85, 247, 0.3)'
+  }
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [timeOfDay, setTimeOfDay] = useState('night'); // Default to night as per first image
+  const theme = THEMES[timeOfDay];
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="min-h-screen bg-background text-white selection:bg-white/20 overflow-x-hidden font-sans">
+      {/* Grid Background */}
+      <div className="fixed inset-0 grid-bg pointer-events-none" />
 
-      <div className="ticks"></div>
+      {/* Main Container */}
+      <main className="relative z-10 max-w-md mx-auto min-h-screen flex flex-col px-6 pt-12 pb-8">
+        
+        {/* Header */}
+        <header className="flex items-center justify-between mb-8 border-left-4">
+          <motion.button 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10"
+          >
+            <ChevronLeft size={20} />
+          </motion.button>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <div className="bg-white/5 border border-white/10 px-6 py-2 rounded-full backdrop-blur-md">
+            <span className="text-lg font-medium tracking-tight">Today's plan</span>
+          </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <div className="flex flex-col items-end gap-1">
+            <Cloud size={14} className={`${theme.accent} mb-1`} />
+            <div className={`px-2 py-0.5 rounded-sm bg-white/5 border border-white/10 text-[10px] font-bold tracking-wider ${theme.accent}`}>
+              05 April 2026
+            </div>
+          </div>
+
+        </header>
+
+        {/* Temporary Theme Toggle for Testing */}
+        <div className="fixed top-4 left-4 z-50 flex gap-2">
+          {Object.keys(THEMES).map(t => (
+            <button 
+              key={t}
+              onClick={() => setTimeOfDay(t)}
+              className={`w-3 h-3 rounded-full ${THEMES[t].bgAccent} border border-white/20`}
+            />
+          ))}
+        </div>
+
+        {/* Hero Section: Glowing Arc & Timer */}
+        <section className="relative flex flex-col items-center justify-center pt-20 pb-12 mb-8">
+          {/* Animated Glow Arc */}
+          <div className="absolute top-0 w-full h-[320px] flex justify-center overflow-hidden pointer-events-none">
+            <motion.div 
+              key={timeOfDay}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative w-[120%] h-[400px]"
+            >
+              {/* The "Neon Tube" Arc */}
+              <div 
+                className="absolute inset-0 rounded-[100%] border-t-[3px] transition-colors duration-1000"
+                style={{ 
+                  borderColor: theme.color,
+                  boxShadow: `
+                    0 -2px 5px #fff,
+                    0 -4px 15px ${theme.color},
+                    0 -10px 40px ${theme.glow},
+                    0 -20px 80px ${theme.glow}
+                  `,
+                }}
+              />
+              
+              {/* Inner ambient light wash */}
+              <div 
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[150px] rounded-[100%] blur-[60px] opacity-30 transition-colors duration-1000"
+                style={{ backgroundColor: theme.color }}
+              />
+            </motion.div>
+          </div>
+
+          {/* Subject Badge */}
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-2 mb-10 z-20"
+          >
+            <div className={`w-2 h-2 rounded-full ${theme.bgAccent}`} 
+                 style={{ boxShadow: `0 0 12px ${theme.color}` }} />
+            <span className="text-[11px] font-bold tracking-[0.3em] text-white/50 uppercase">Organic Chemistry</span>
+          </motion.div>
+
+          {/* Timer Display */}
+          <div className="relative z-20 flex items-baseline gap-4 font-medium tracking-tighter">
+            <div className="flex items-baseline gap-1">
+              <span className="text-6xl md:text-7xl font-semibold">05</span>
+              <span className="text-xs text-white/40 font-medium">hr</span>
+            </div>
+            <div className="w-1 h-1 bg-white/20 rounded-full mb-6" />
+            <div className="flex items-baseline gap-1">
+              <span className="text-6xl md:text-7xl font-semibold">00</span>
+              <span className="text-xs text-white/40 font-medium">min</span>
+            </div>
+            <div className="w-1 h-1 bg-white/20 rounded-full mb-6" />
+            <div className="flex items-baseline gap-1">
+              <span className="text-6xl md:text-7xl font-semibold">00</span>
+              <span className="text-xs text-white/40 font-medium">sec</span>
+            </div>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="w-full max-w-[260px] h-1.5 bg-white/5 rounded-full mt-10 relative overflow-hidden border border-white/5">
+            <motion.div 
+              initial={{ width: 0 }}
+              animate={{ width: '65%' }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              className={`absolute left-0 top-0 h-full bg-gradient-to-r ${theme.gradient} rounded-full`}
+            />
+          </div >
+        </section>
+
+        {/* Section Divider */}
+        <div className="flex items-center gap-4 mb-8">
+          <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-white/10" />
+          <span className="text-xs font-medium text-white/40 whitespace-nowrap">Todays topics to be covered</span>
+          <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-white/10" />
+        </div>
+        
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
