@@ -226,7 +226,7 @@ function App() {
             </div>
 
             {/* Progress Bar */}
-            <div className="w-full max-w-[240px] sm:max-w-[280px] h-1.5 bg-white/5 rounded-full relative overflow-hidden border border-white/5 z-20 mb-6 flex-shrink-0 -mt-8">
+            <div className="w-full max-w-[270px] sm:max-w-[330px] h-1.5 bg-white/5 rounded-full relative overflow-hidden border border-white/5 z-20 mb-6 flex-shrink-0 -mt-8">
               <motion.div 
                 initial={{ width: 0 }}
                 animate={{ width: '65%' }}
@@ -240,12 +240,12 @@ function App() {
           <div className="w-full flex-1 max-w-[540px] flex flex-col lg:mt-0 min-h-0">
             
             {/* Section Divider Header */}
-            <div className="flex items-center gap-3 mb-5 flex-shrink-0">
-              <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-white/10" />
-              <span className="text-[9px] sm:text-[10px] font-medium text-white/40 whitespace-nowrap uppercase tracking-wider">
+            <div className="flex items-center gap-8 mb-5 flex-shrink-0">
+              <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-white/70" />
+              <span className="text-[14px] sm:text-[16px] font-medium text-white/60 whitespace-nowrap tracking-wider">
                 Todays topics to be covered
               </span>
-              <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-white/10" />
+              <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-white/70" />
             </div>
 
             <div className="bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-5 sm:p-7 backdrop-blur-xl relative overflow-hidden group flex flex-col min-h-0">
