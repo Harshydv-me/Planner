@@ -140,10 +140,10 @@ function App() {
               <span className="text-[14px] font-bold tracking-[0.2em] text-white/50 uppercase">Organic Chemistry</span>
             </motion.div>
 
-            {/* Fixed-Size Semicircle Arc Hero - Extra Large Scale */}
-            <div className="relative w-[480px] h-[240px] sm:w-[600px] sm:h-[300px] flex items-end justify-center mb-2 flex-shrink-0">
+            {/* Fixed-Size Semicircle Arc Hero - Extra Large Scale (Slightly Increased) */}
+            <div className="relative w-[512px] h-[256px] sm:w-[640px] sm:h-[320px] flex items-end justify-center mb-2 flex-shrink-0">
               <svg 
-                viewBox="0 0 600 300" 
+                viewBox="0 0 640 320" 
                 className="absolute top-0 w-full h-full overflow-visible pointer-events-none"
               >
                 <defs>
@@ -167,7 +167,7 @@ function App() {
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}
-                  d="M 50,300 A 250,250 0 0 1 550,300"
+                  d="M 50,320 A 270,270 0 0 1 590,320"
                   fill="none"
                   stroke="url(#arcGradient)"
                   strokeWidth="10"
@@ -186,7 +186,7 @@ function App() {
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}
-                  d="M 50,300 A 250,250 0 0 1 550,300"
+                  d="M 50,320 A 270,270 0 0 1 590,320"
                   fill="none"
                   stroke="url(#whiteGradient)"
                   strokeWidth="3.5"
@@ -207,7 +207,7 @@ function App() {
               />
 
               {/* Timer Display - Balanced Scale */}
-              <div className="relative z-20 flex items-baseline gap-1.5 font-medium tracking-tighter pb-10">
+              <div className="relative z-20 flex items-baseline gap-1.5 font-medium tracking-tighter pb-11">
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-4xl sm:text-5xl font-semibold">05</span>
                   <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">hr</span>
@@ -248,13 +248,13 @@ function App() {
               <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-white/70" />
             </div>
 
-            <div className="bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-5 sm:p-7 backdrop-blur-xl relative overflow-hidden group flex flex-col min-h-0">
+            <div className="">
               <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-white/[0.02] rounded-full blur-[60px] pointer-events-none" />
               
               <div className="relative z-10 flex flex-col min-h-0 h-full">
                 {/* Scrollable Topics Area */}
                 <div className="relative flex-1 min-h-0 overflow-hidden group/list">
-                  <div className="space-y-1.5 h-full overflow-y-auto pr-2 custom-scrollbar relative z-10 pt-4">
+                  <div className="space-y-1.5 h-full overflow-y-auto pl-2 pr-2 custom-scrollbar relative z-10 pt-4 pb-2">
                     {TOPICS.map((topic) => (
                       <TopicCard key={topic.id} topic={topic} />
                     ))}
