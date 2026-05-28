@@ -69,7 +69,7 @@ function TopicCard({ topic }) {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="px-5.5 py-1 rounded-lg bg-transparent border border-white/20 text-[11px] font-bold tracking-tight text-white hover:bg-white/10 transition-colors"
+        className="px-5.5 py-1 rounded-lg bg-transparent border border-white/60 text-[11px] font-bold tracking-tight text-white hover:bg-white/10 transition-colors"
       >
         Start
       </motion.button>
@@ -258,17 +258,17 @@ function App() {
                   <div className="relative z-20 flex items-baseline gap-1.5 font-medium tracking-tighter pb-11">
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-5xl sm:text-6xl font-semibold font-jakarta">05</span>
-                  <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">hr</span>
+                  <span className="text-[14px] sm:text-[12px] text-white/90 font-medium ">hr</span>
                 </div>
                 <div className="w-1 h-1 bg-white/20 rounded-full mb-5 sm:mb-6" />
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-5xl  sm:text-6xl font-semibold font-jakarta">00</span>
-                  <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">min</span>
+                  <span className="text-[14px] sm:text-[12px] text-white/90 font-medium ">min</span>
                 </div>
                 <div className="w-1 h-1 bg-white/20 rounded-full mb-5 sm:mb-6" />
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-5xl sm:text-6xl font-semibold font-jakarta">00</span>
-                  <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">sec</span>
+                  <span className="text-[14px] sm:text-[12px] text-white/90 font-medium ">sec</span>
                 </div>
               </div>
             </div>
@@ -289,11 +289,11 @@ function App() {
             
             {/* Section Divider Header */}
             <div className="flex items-center gap-8 mb-5 flex-shrink-0">
-              <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-white/70" />
+              <div className="flex-1 h-[2px] bg-gradient-to-r from-transparent to-white/90" />
               <span className="text-[14px] sm:text-[16px] font-medium text-white/60 whitespace-nowrap tracking-wider">
                 Todays topics to be covered
               </span>
-              <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-white/70" />
+              <div className="flex-1 h-[2px] bg-gradient-to-l from-transparent to-white/90" />
             </div>
 
             <div className="">
