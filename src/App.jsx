@@ -62,7 +62,7 @@ function TopicCard({ topic }) {
       <div className="flex items-center gap-3">
         <h3 className="text-[15px] font-semibold text-white/90">{topic.title}</h3>
         {topic.duration && (
-          <span className="text-[11px] font-medium text-white/30">({topic.duration})</span>
+          <span className="text-[11px] font-medium text-white/90">({topic.duration})</span>
         )}
       </div>
       
@@ -88,15 +88,33 @@ function App() {
 
       {/* Top White Ambient Glow */}
       <div className="fixed top-0 left-0 right-0 pointer-events-none z-0">
-        <div 
-          className="absolute top-[-100px] left-0 right-0 h-[200px] blur-[120px] opacity-30 bg-white"
+        <motion.div 
+          animate={{
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-[-100px] left-0 right-0 h-[200px] blur-[120px] bg-white"
         />
       </div>
 
       {/* Bottom Theme Ambient Glow - Refined for seamless bloom */}
       <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-0">
-        <div 
-          className="absolute bottom-[-150px] left-[-2%] w-[70%] h-[300px] blur-[120px] opacity-60 transition-colors duration-1000 rounded-full"
+        <motion.div 
+          animate={{
+            opacity: [0.4, 0.7, 0.4],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-[-150px] left-[-2%] w-[70%] h-[300px] blur-[120px] transition-colors duration-1000 rounded-full"
           style={{ backgroundColor: theme.color }}
         />
       </div>
@@ -303,7 +321,7 @@ function App() {
                   <motion.button
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-55 py-2.5 rounded-[1rem] border-2 border-white/100 relative overflow-hidden transition-all duration-300 shadow-xl"
+                    className="w-55 py-2.5 rounded-[1rem] border-2 border-white/80 relative overflow-hidden transition-all duration-300 shadow-xl"
                     style={{ 
                       background: `linear-gradient(to top right, rgba(0,0,0,0.6) 0%, transparent 60%), linear-gradient(to bottom, ${theme.color}, ${theme.color}CC)`,
                       boxShadow: `
