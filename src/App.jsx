@@ -86,6 +86,13 @@ function App() {
       {/* Grid Background */}
       <div className="fixed inset-0 grid-bg pointer-events-none" />
 
+      {/* Top White Ambient Glow */}
+      <div className="fixed top-0 left-0 right-0 pointer-events-none z-0">
+        <div 
+          className="absolute top-[-100px] left-0 right-0 h-[200px] blur-[120px] opacity-30 bg-white"
+        />
+      </div>
+
       {/* Bottom Theme Ambient Glow - Refined for seamless bloom */}
       <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-0">
         <div 
@@ -119,11 +126,11 @@ function App() {
           </motion.button>
 
           <div className="relative group">
-            <div className="relative px-8 py-1.5 rounded-full bg-[#0d0d0d] border border-white/10 flex items-center justify-center"
+            <div className="relative px-7 py-0 rounded-full bg-[#202020] border border-white/0 flex items-center justify-center"
                  style={{
-                   boxShadow: 'inset 0 8px 12px rgba(0,0,0,0.9), inset 0 -2px 1px rgba(255, 255, 255, 0.2)'
+                   boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, 0.9), inset 0 -1px 0.5px rgba(255, 255, 255, 0.23)'
                  }}>
-              <span className="text-[20px] font-bold tracking-tight whitespace-nowrap bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text text-transparent">
+              <span className="text-[26px] font-bold tracking-tight whitespace-nowrap bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text text-transparent">
                 Today's plan
               </span>
             </div>
@@ -131,7 +138,7 @@ function App() {
 
           <div className="absolute right-0 xl:right-14 flex flex-col items-end">
             <Cloud size={18} className={`${theme.accent} mb-1`} />
-            <div className={`px-3 py-1 rounded-sm bg-white/5 border border-white/10 text-[10px] font-bold tracking-wider uppercase ${theme.accent}`}>
+            <div className={`px-2 py-1 rounded-sm bg-white/5 border border-white/10 text-[10px] font-bold tracking-wider uppercase ${theme.accent}`}>
               05 April 2026
             </div>
           </div>
@@ -139,7 +146,7 @@ function App() {
        
         {/* topics tab */}
         {/* Dashboard Split View */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start gap-6 lg:gap-44 flex-1 lg:min-h-0 lg:overflow-visible custom-scrollbar pt-10 lg:pt-0">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start gap-6 lg:gap-44 flex-1 lg:min-h-0 lg:overflow-visible custom-scrollbar pt-2 lg:pt-0">
           {/* clock tab */}
           {/* Left Column: Hero & Timer - Scaled Down */}
           <div className="w-full lg:max-w-[420px] flex flex-col items-center lg:pl-20 lg:pt-25 flex-shrink-0 relative" >
@@ -152,7 +159,7 @@ function App() {
             >
               <div className={`w-2 h-2 rounded-full ${theme.bgAccent}`} 
                    style={{ boxShadow: `0 0 10px ${theme.color}` }} />
-              <span className="text-[14px] font-bold tracking-[0.2em] text-white/50 uppercase">Organic Chemistry</span>
+              <span className="text-[14px] font-normal tracking-[0.2em] text-white/50 uppercase">Organic Chemistry</span>
             </motion.div>
 
             {/* Fixed-Size Semicircle Arc Hero - Extra Large Scale (Slightly Increased) */}
