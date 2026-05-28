@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Cloud, Users } from 'lucide-react';
+import { ArrowLeft, Users, MoveLeft, CloudSun } from 'lucide-react';
 
 const THEMES = {
   morning: {
@@ -69,7 +69,7 @@ function TopicCard({ topic }) {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="px-5 py-1 rounded-full bg-transparent border border-white/20 text-[11px] font-bold tracking-tight text-white hover:bg-white/10 transition-colors"
+        className="px-5.5 py-1 rounded-lg bg-transparent border border-white/20 text-[11px] font-bold tracking-tight text-white hover:bg-white/10 transition-colors"
       >
         Start
       </motion.button>
@@ -96,7 +96,7 @@ function App() {
       {/* Bottom Theme Ambient Glow - Refined for seamless bloom */}
       <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-0">
         <div 
-          className="absolute bottom-[-100px] left-0 right-0 h-[100px] blur-[120px] opacity-100 transition-colors duration-1000"
+          className="absolute bottom-[-150px] left-[-2%] w-[70%] h-[300px] blur-[120px] opacity-60 transition-colors duration-1000 rounded-full"
           style={{ backgroundColor: theme.color }}
         />
       </div>
@@ -122,7 +122,7 @@ function App() {
             whileTap={{ scale: 0.9 }}
             className="absolute left-0 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white transition-colors"
           >
-            <ArrowLeft size={24} strokeWidth={1.5} />
+            <MoveLeft size={30} strokeWidth={2} />
           </motion.button>
 
           <div className="relative group">
@@ -137,7 +137,7 @@ function App() {
           </div>
 
           <div className="absolute right-0 xl:right-14 flex flex-col items-end">
-            <Cloud size={18} className={`${theme.accent} mb-1`} />
+            <CloudSun size={18} className={`${theme.accent} mb-1`} />
             <div className={`px-2 py-1 rounded-sm bg-white/5 border border-white/10 text-[10px] font-bold tracking-wider uppercase ${theme.accent}`}>
               05 April 2026
             </div>
@@ -157,9 +157,9 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 mt-2"
             >
-              <div className={`w-2 h-2 rounded-full ${theme.bgAccent}`} 
-                   style={{ boxShadow: `0 0 10px ${theme.color}` }} />
-              <span className="text-[14px] font-normal tracking-[0.2em] text-white/50 uppercase">Organic Chemistry</span>
+              <div className={`w-2 h-2 rounded-full ${timeOfDay === 'morning' ? 'bg-red-500' : 'bg-green-500'}`} 
+                   style={{ boxShadow: `0 0 10px ${timeOfDay === 'morning' ? '#ef4444' : '#22c55e'}` }} />
+              <span className="text-[14px] font-normal tracking-[0.2em] text-white/50 uppercase font-sans">Organic Chemistry</span>
             </motion.div>
 
             {/* Fixed-Size Semicircle Arc Hero - Extra Large Scale (Slightly Increased) */}
@@ -218,7 +218,23 @@ function App() {
                   style={{
                     filter: `blur(50px) drop-shadow(0 0 100px #fff)`
                   }}
-                />                  </svg>
+                />
+{/* Thick White Blurred Line Inside the color line */}
+<motion.path
+  key={`${timeOfDay}-thick-white`}
+  initial={{ pathLength: 0, opacity: 0 }}
+  animate={{ pathLength: 1, opacity: 0.6 }}
+  transition={{ duration: 1.5, ease: "easeInOut" }}
+  d="M 50,320 A 270,270 0 0 1 590,320"
+  fill="none"
+  stroke="url(#whiteGradient)"
+  strokeWidth="15"
+  strokeLinecap="round"
+  style={{
+    filter: "blur(8px)",
+  }}
+/>
+              </svg>
 
                   {/* Timer Display - Balanced Scale */}
                   <div className="relative z-20 flex items-baseline gap-1.5 font-medium tracking-tighter pb-11">
@@ -279,17 +295,17 @@ function App() {
                 <div className="mt-auto flex flex-col items-center gap-4 flex-shrink-0">
                   <div className="flex items-center gap-2">
                     <Users size={14} className="text-white/90" />
-                    <span className="text-[9px] sm:text-[10px] font-medium text-white/90 uppercase tracking-widest">
-                      28 students active
+                    <span className="text-[9px] sm:text-[10px] font-medium text-white/90 tracking-widest">
+                      28 students declared their plan today
                     </span>
                   </div>
 
                   <motion.button
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-60 py-2 rounded-[1rem] border border-white/100 relative overflow-hidden transition-all duration-300 shadow-xl"
+                    className="w-55 py-2.5 rounded-[1rem] border-2 border-white/100 relative overflow-hidden transition-all duration-300 shadow-xl"
                     style={{ 
-                      background: `linear-gradient(to bottom, ${theme.color}, ${theme.color}CC)`,
+                      background: `linear-gradient(to top right, rgba(0,0,0,0.6) 0%, transparent 60%), linear-gradient(to bottom, ${theme.color}, ${theme.color}CC)`,
                       boxShadow: `
                         inset 0 1px 0 rgba(255, 255, 255, 0.3),
                         0 12px 24px -8px ${theme.glow}
