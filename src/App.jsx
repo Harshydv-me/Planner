@@ -312,7 +312,7 @@ function App() {
                       `
                     }}
                   >
-                    <span className="relative z-10 bg-gradient-to-b from-white via-white/100 to-white/100 bg-clip-text text-transparent text-xl font-bold tracking-tight">
+                    <span className="relative z-10 bg-gradient-to-b from-white via-white/100 to-white/100 bg-clip-text text-transparent text-xl font-bold tracking-tight font-jakarta">
                       Start plan
                     </span>
                   </motion.button>
