@@ -57,7 +57,7 @@ function TopicCard({ topic }) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.01 }}
-      className="group relative flex items-center justify-between p-3.5 mb-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.05] hover:border-white/[0.15]"
+      className="group relative flex items-center justify-between p-3.5 mb-2.5 rounded-xl bg-white/[0.07] border-2 border-white/[0.15] backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.1] hover:border-white/[0.25]"
     >
       <div className="flex items-center gap-3">
         <h3 className="text-[15px] font-semibold text-white/90">{topic.title}</h3>
