@@ -130,8 +130,8 @@ function App() {
                  style={{
                    boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, 0.9), inset 0 -1px 0.5px rgba(255, 255, 255, 0.23)'
                  }}>
-              <span className="text-[26px] font-bold tracking-tight whitespace-nowrap bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text text-transparent">
-                Today's plan
+              <span className="text-[26px] font-bold tracking-tight whitespace-nowrap bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text text-transparent font-jakarta">
+               Today's plan
               </span>
             </div>
           </div>
@@ -239,17 +239,17 @@ function App() {
                   {/* Timer Display - Balanced Scale */}
                   <div className="relative z-20 flex items-baseline gap-1.5 font-medium tracking-tighter pb-11">
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-4xl sm:text-5xl font-semibold">05</span>
+                  <span className="text-5xl sm:text-6xl font-semibold font-jakarta">05</span>
                   <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">hr</span>
                 </div>
                 <div className="w-1 h-1 bg-white/20 rounded-full mb-5 sm:mb-6" />
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-4xl sm:text-5xl font-semibold">00</span>
+                  <span className="text-5xl  sm:text-6xl font-semibold font-jakarta">00</span>
                   <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">min</span>
                 </div>
                 <div className="w-1 h-1 bg-white/20 rounded-full mb-5 sm:mb-6" />
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-4xl sm:text-5xl font-semibold">00</span>
+                  <span className="text-5xl sm:text-6xl font-semibold font-jakarta">00</span>
                   <span className="text-[10px] sm:text-[12px] text-white/40 font-medium uppercase">sec</span>
                 </div>
               </div>
